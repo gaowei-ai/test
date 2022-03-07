@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            /* visibility: hidden; */
+            /* display: none; */
+            /* translate: 20px; */
+        }
+
+        .box::before {
+            content: 'nihao';
+        }
+
+        .box1 {
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            /* vertical-align: middle; */
+            line-height: 100px;
+        }
+
+        .box:hover {
+            /* translate: 20px; */
+            background-color: black;
+            transform: translateX(20px);
+
+        }
+
+        .box2 {
+            display: flex;
+            height: 100px;
+        }
+
+        .box3 {
+            width: 200px;
+            background: tomato;
+        }
+
+        .box4 {
+            flex: 1;
+            background: gold;
+        }
+        .box5 {
+            width: 200px;
+            background: green;
+        }
+        span{
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <div class="box1"><span>1234</span></div>
+    <ul>
+        <li>nihao</li>
+        <li>nihao</li>
+        <li>nihao</li>
+    </ul>
+    <div class="box2">
+        <div class="box3">box1</div>
+        <div class="box4">box2bjjlkhk</div>
+        <div class="box5">box5</div>
+    </div>
+
+</body>
+<script>
+
+    let promise1 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(1);
+        }, 2000)
+    });
+    let promise2 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            reject(2);
+        }, 1000)
+    });
+    let promise3 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(3);
+        }, 3000)
+    });
+    Promise.all([promise1, promise2, promise3]).then(res => {
+        console.log(res);
+        //结果为：[1,2,3] 
+    })
+
+</script>
+
+</html>
